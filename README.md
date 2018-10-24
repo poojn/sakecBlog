@@ -1,2 +1,2 @@
 # sakecBlog
-mini project as college blog
+mini project for blogging website
