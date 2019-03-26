@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>About Us</title>
+	<?php include('head.php');?>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7wKjMfXH1tQlKZpiv3KPA4ajACz yJ-Hw&callback=myMap"></script>
+</head>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+<body>
+
+
+
+<button type="button" onclick="loadDoc()">CONTACT US</button>
+<br><br>
+<table id="demo"></table>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xhttp.open("GET", "cd_catalog.xml", true);
+  xhttp.send();
+}
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>NAME</th><th>PHONE</th></tr>";
+  var x = xmlDoc.getElementsByTagName("INFO");
+  for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("PHONE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
+<?php include('sakecBlogFoot.php'); ?>
+</body>
+</html>

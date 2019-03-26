@@ -1,6 +1,3 @@
-<?php
-
-echo '
 <div id="foot-full" class="row-bef">
 	<footer class="row-aft" id="foot">
 		<div id="copyright">@You can Copy this, 2018</div>
@@ -11,6 +8,3 @@ echo '
 		</section>
 	</footer>
 </div>
-	';
-
-?>
